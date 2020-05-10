@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<featureModel>
+	<properties>
+		<graphics key="showhiddenfeatures" value="true"/>
+		<graphics key="legendposition" value="672,61"/>
+		<graphics key="legendautolayout" value="false"/>
+		<graphics key="showshortnames" value="false"/>
+		<graphics key="layout" value="vertical"/>
+		<graphics key="showcollapsedconstraints" value="true"/>
+		<graphics key="legendhidden" value="false"/>
+		<graphics key="layoutalgorithm" value="4"/>
+	</properties>
+	<struct>
+		<and abstract="true" mandatory="true" name="Lains">
+			<and mandatory="true" name="Context">
+				<graphics key="collapsed" value="false"/>
+				<and name="Location">
+					<graphics key="collapsed" value="false"/>
+					<feature mandatory="true" name="GPS"/>
+				</and>
+				<alt mandatory="true" name="Role">
+					<graphics key="collapsed" value="false"/>
+					<feature name="DairyEnterprice"/>
+					<feature name="Farmer"/>
+					<feature name="Mayor"/>
+					<feature name="Governor"/>
+					<feature name="MilkCollector"/>
+				</alt>
+				<alt mandatory="true" name="Device">
+					<graphics key="collapsed" value="false"/>
+					<feature name="PC"/>
+					<feature name="Smartphone"/>
+				</alt>
+			</and>
+			<and mandatory="true" name="Functionality">
+				<graphics key="collapsed" value="false"/>
+				<and mandatory="true" name="Generics">
+					<graphics key="collapsed" value="false"/>
+					<and name="Notification">
+						<graphics key="collapsed" value="false"/>
+						<feature name="Email"/>
+						<feature name="SMS"/>
+						<feature name="Telegram"/>
+					</and>
+				</and>
+				<and mandatory="true" name="DairyEcosystem">
+					<graphics key="collapsed" value="false"/>
+					<and name="News">
+						<graphics key="collapsed" value="false"/>
+						<feature name="CreateNews"/>
+						<feature name="ConsultNews"/>
+					</and>
+					<and name="Routes">
+						<graphics key="collapsed" value="false"/>
+						<alt name="Tracking">
+							<feature name="FTracking"/>
+							<feature name="DTracking"/>
+						</alt>
+						<alt name="RoutesManagement">
+							<feature name="FRouteManagement"/>
+							<feature name="DRouteManagement"/>
+						</alt>
+						<feature name="ConsultRoutes"/>
+						<feature name="CollectionPoints"/>
+					</and>
+				</and>
+			</and>
+		</and>
+	</struct>
+	<constraints>
+		<rule>
+			<imp>
+				<var>DairyEnterprice</var>
+				<conj>
+					<var>ConsultNews</var>
+					<conj>
+						<var>DTracking</var>
+						<var>DRouteManagement</var>
+					</conj>
+				</conj>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>Farmer</var>
+				<conj>
+					<var>ConsultNews</var>
+					<conj>
+						<var>FTracking</var>
+						<var>FRouteManagement</var>
+					</conj>
+				</conj>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>CreateNews</var>
+				<disj>
+					<var>Mayor</var>
+					<var>Governor</var>
+				</disj>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>MilkCollector</var>
+				<conj>
+					<var>ConsultNews</var>
+					<conj>
+						<var>CollectionPoints</var>
+						<var>ConsultRoutes</var>
+					</conj>
+				</conj>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>SMS</var>
+				<var>Smartphone</var>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>Telegram</var>
+				<var>Smartphone</var>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>ConsultRoutes</var>
+				<conj>
+					<var>Smartphone</var>
+					<var>GPS</var>
+				</conj>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>Routes</var>
+				<var>Notification</var>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<disj>
+					<var>DTracking</var>
+					<var>DRouteManagement</var>
+				</disj>
+				<var>DairyEnterprice</var>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<disj>
+					<var>FTracking</var>
+					<var>FRouteManagement</var>
+				</disj>
+				<var>Farmer</var>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<disj>
+					<var>CollectionPoints</var>
+					<var>ConsultRoutes</var>
+				</disj>
+				<var>MilkCollector</var>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>GPS</var>
+				<var>Smartphone</var>
+			</imp>
+		</rule>
+	</constraints>
+</featureModel>

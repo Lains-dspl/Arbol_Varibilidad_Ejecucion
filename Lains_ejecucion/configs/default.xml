@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configuration>
+	<feature automatic="selected" name="Lains"/>
+	<feature automatic="selected" name="Context"/>
+	<feature automatic="selected" name="Location"/>
+	<feature automatic="selected" name="GPS"/>
+	<feature automatic="selected" name="Role"/>
+	<feature automatic="unselected" name="DairyEnterprice"/>
+	<feature automatic="unselected" name="Farmer"/>
+	<feature automatic="unselected" name="Mayor"/>
+	<feature automatic="unselected" name="Governor"/>
+	<feature manual="selected" name="MilkCollector"/>
+	<feature automatic="selected" name="Device"/>
+	<feature automatic="unselected" name="PC"/>
+	<feature automatic="selected" name="Smartphone"/>
+	<feature automatic="selected" name="Functionality"/>
+	<feature automatic="selected" name="Generics"/>
+	<feature automatic="selected" manual="selected" name="Notification"/>
+	<feature manual="selected" name="Email"/>
+	<feature name="SMS"/>
+	<feature name="Telegram"/>
+	<feature automatic="selected" name="DairyEcosystem"/>
+	<feature automatic="selected" name="News"/>
+	<feature automatic="unselected" name="CreateNews"/>
+	<feature automatic="selected" manual="selected" name="ConsultNews"/>
+	<feature automatic="selected" manual="selected" name="Routes"/>
+	<feature automatic="unselected" name="Tracking"/>
+	<feature automatic="unselected" name="FTracking"/>
+	<feature automatic="unselected" name="DTracking"/>
+	<feature automatic="unselected" name="RoutesManagement"/>
+	<feature automatic="unselected" name="FRouteManagement"/>
+	<feature automatic="unselected" name="DRouteManagement"/>
+	<feature automatic="selected" name="ConsultRoutes"/>
+	<feature automatic="selected" name="CollectionPoints"/>
+</configuration>
